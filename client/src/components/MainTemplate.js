@@ -1,7 +1,8 @@
 import React from "react";
 import "./MainTemplate.css";
-import logo from "../images/AD_logo.png";
+
 import { useHistory } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function MainTemplate() {
   const history = useHistory();
@@ -12,14 +13,7 @@ function MainTemplate() {
 
   return (
     <div className="">
-      <nav className="Navbar navbar navbar-light bg-dark">
-        <img
-          src={logo}
-          className="Navbar__logo"
-          alt=""
-          onClick={handleLogoClick}
-        />
-      </nav>
+      <Navbar />
     </div>
   );
 }
