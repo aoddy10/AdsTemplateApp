@@ -12,7 +12,7 @@ function LandingPage() {
 
   return (
     <div className="bg-primary">
-      <div className="wrapper fadeInDown">
+      <div className="wrapper fadeInDown ">
         <div className="LandingBox">
           <div className="fadeIn first mt-4 mb-4">
             <img src={logo} className="LandingBox__logo" alt="MAR Logo" />
