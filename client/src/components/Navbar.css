@@ -1,0 +1,7 @@
+.Navbar__logo {
+  margin-left: 0px;
+}
+
+.Navbar__logo:hover {
+  cursor: pointer;
+}

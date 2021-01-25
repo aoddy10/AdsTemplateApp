@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import MainTemplate from "./components/MainTemplate";
+import Canvas from "./components/Canvas";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
           <Route path="/main">
             <MainTemplate />
           </Route>
-
+          <Route path="/canvas">
+            <Canvas />
+          </Route>
           <Route path="/">
             <LandingPage />
           </Route>

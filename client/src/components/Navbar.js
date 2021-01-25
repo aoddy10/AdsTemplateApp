@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import logo from "../images/AD_logo.png";
+import "./Navbar.css";
 
 function Navbar() {
   const history = useHistory();

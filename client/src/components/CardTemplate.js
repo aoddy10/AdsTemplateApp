@@ -1,8 +1,17 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useStateValue } from "../utils/StateProvider";
 
 const CardTemplate = (props) => {
+  const [{ template }, dispatch] = useStateValue();
+
   const [title, setTitle] = useState(props.title);
   const [imageName, setImageName] = useState(props.imageName);
+  const history = useHistory();
+
+  const handleCreateClick = () => {
+    history.push("/canvas");
+  };
 
   return (
     <div className="Card card mt-3">
@@ -13,9 +22,9 @@ const CardTemplate = (props) => {
       />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        <a href="#" className="btn btn-primary">
+        <div className="btn btn-primary" onClick={handleCreateClick}>
           Create Ad.
-        </a>
+        </div>
       </div>
     </div>
   );
