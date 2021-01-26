@@ -24,7 +24,11 @@ function MainTemplate() {
         <div className="row">
           {templates.map((item, index) => (
             <div key={index} className="col-6 col-md-3">
-              <CardTemplate title={item.name} imageName={item.picture} />
+              <CardTemplate
+                name={item.name}
+                picture={item.picture}
+                element={item.element}
+              />
             </div>
           ))}
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../utils/StateProvider";
 
-const CardTemplate = ({ title, imageName }) => {
+const CardTemplate = ({ name, picture, element }) => {
   const [{ template }, dispatch] = useStateValue();
 
   // const [title, setTitle] = useState(props.title);
@@ -14,23 +14,24 @@ const CardTemplate = ({ title, imageName }) => {
     dispatch({
       type: "REPLACE_TO_TEMPLATE",
       item: {
-        title: title,
-        imageName: imageName,
+        name: name,
+        picture: picture,
+        element: element,
       },
     });
 
-    // history.push("/canvas");
+    history.push("/canvas");
   };
 
   return (
     <div className="Card card mt-3">
       <img
         className="card-img-top"
-        src={`${process.env.PUBLIC_URL}/templates/` + imageName}
+        src={`${process.env.PUBLIC_URL}/templates/` + picture}
         alt="Card image"
       />
       <div className="card-body">
-        <h5 className="card-title">{title}</h5>
+        <h5 className="card-title">{name}</h5>
         <div className="btn btn-primary" onClick={handleCreateClick}>
           Create Ad.
         </div>

@@ -7,7 +7,20 @@ body {
 .Canvas__layout {
   height: 600px;
   width: 600px;
+  position: relative;
 }
 .Canvas__edit {
   width: 300px;
+}
+
+.Canvas__background {
+  height: 600px;
+  width: 600px;
+  z-index: 100;
+  position: absolute;
+}
+
+.Canvas__text {
+  position: absolute;
+  z-index: 200;
 }
