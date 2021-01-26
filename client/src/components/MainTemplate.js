@@ -4,8 +4,12 @@ import { useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 import CardTemplate from "./CardTemplate";
 import templates from "./Data";
+import { useStateValue } from "../utils/StateProvider";
 
 function MainTemplate() {
+  const [{ template }, dispatch] = useStateValue();
+  console.log(template);
+
   const history = useHistory();
 
   return (
@@ -19,12 +23,8 @@ function MainTemplate() {
         </div>
         <div className="row">
           {templates.map((item, index) => (
-            <div className="col-6 col-md-3">
-              <CardTemplate
-                key={index}
-                title={item.name}
-                imageName={item.picture}
-              />
+            <div key={index} className="col-6 col-md-3">
+              <CardTemplate title={item.name} imageName={item.picture} />
             </div>
           ))}
         </div>

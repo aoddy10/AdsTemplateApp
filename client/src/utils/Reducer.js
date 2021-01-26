@@ -2,17 +2,21 @@ export const initialState = {
   template: [],
 };
 
-function reducer(state, action) {
+const reducer = (state, action) => {
+  console.log(action);
   switch (action.type) {
-    case "ADD_TO_TEMPLATE":
-      break;
+    case "REPLACE_TO_TEMPLATE":
+      return {
+        ...state,
+        template: [action.item],
+      };
 
     case "REMOVE_FROM_TEMPLATE":
-      break;
+      return { ...state, template: [] };
 
     default:
       return state;
   }
-}
+};
 
 export default reducer;

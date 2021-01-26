@@ -2,15 +2,24 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../utils/StateProvider";
 
-const CardTemplate = (props) => {
+const CardTemplate = ({ title, imageName }) => {
   const [{ template }, dispatch] = useStateValue();
 
-  const [title, setTitle] = useState(props.title);
-  const [imageName, setImageName] = useState(props.imageName);
+  // const [title, setTitle] = useState(props.title);
+  // const [imageName, setImageName] = useState(props.imageName);
   const history = useHistory();
 
   const handleCreateClick = () => {
-    history.push("/canvas");
+    // add Template to data layer
+    dispatch({
+      type: "REPLACE_TO_TEMPLATE",
+      item: {
+        title: title,
+        imageName: imageName,
+      },
+    });
+
+    // history.push("/canvas");
   };
 
   return (
