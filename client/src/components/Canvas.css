@@ -9,8 +9,7 @@ body {
   width: 600px;
   position: relative;
 }
-.Canvas__edit {
-  width: 300px;
+.Toolbox {
 }
 
 .Canvas__background {

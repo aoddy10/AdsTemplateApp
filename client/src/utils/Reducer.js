@@ -1,5 +1,6 @@
 export const initialState = {
   template: [],
+  defualtTemplate: [],
 };
 
 const reducer = (state, action) => {
@@ -9,10 +10,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         template: [action.item],
+        defualtTemplate: [action.item],
       };
 
     case "REMOVE_FROM_TEMPLATE":
-      return { ...state, template: [] };
+      return { ...state, template: [], defualtTemplate: [] };
+
+    case "UPDATE_ELEMENT":
+      return { ...state };
 
     default:
       return state;
