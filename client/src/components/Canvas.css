@@ -9,7 +9,14 @@ body {
   width: 600px;
   position: relative;
 }
+
 .Toolbox {
+  width: 250px;
+}
+
+.Toolbox__element label,
+input {
+  font-size: 0.75rem;
 }
 
 .Canvas__background {
@@ -22,4 +29,12 @@ body {
 .Canvas__text {
   position: absolute;
   z-index: 200;
+}
+
+.Toolbox__header {
+  background-color: red !important;
+}
+
+.card-header {
+  padding: 0;
 }

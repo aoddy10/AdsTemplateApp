@@ -7,11 +7,16 @@ import ToolboxText from "./toolbox/ToolboxText";
 
 function Canvas() {
   const [{ template }, dispatch] = useStateValue();
-  const [defaultTemplate, setDefaultTemplate] = useState(template);
 
   const history = useHistory();
 
   const handleGoBackClick = () => {
+    // update element in data layer
+
+    dispatch({
+      type: "RESET_TEMPLATE",
+    });
+
     history.push("/main");
   };
 
@@ -55,7 +60,7 @@ function Canvas() {
                 .filter((item, index) => {
                   return item.type === "text";
                 })
-                .map((item) => {
+                .map((item, index) => {
                   return (
                     <div
                       className="Canvas__text"
@@ -86,7 +91,11 @@ function Canvas() {
                 .map((item, index) => {
                   return (
                     <div className="d-flex flex-column">
-                      <ToolboxText index={index} templateElement={item} />
+                      <ToolboxText
+                        key={index}
+                        index={index}
+                        templateElement={item}
+                      />
                     </div>
                   );
                 })}

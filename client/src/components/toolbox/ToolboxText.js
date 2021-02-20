@@ -67,60 +67,76 @@ const ToolboxText = ({ index, templateElement }) => {
 
   return (
     <div className="Toolbox d-flex flex-column" key={index}>
-      <div className="d-flex bg-warning pl-2 pr-2">
-        <div>{element.text}</div>
-      </div>
-
-      <div className="pl-2 pr-2">
-        <div className="d-flex pb-1 pt-1">
-          <label htmlFor="text">Text</label>
-          <input
-            type="text"
-            name="text"
-            value={element.text}
-            onChange={(e) => handleTextChange(e.target.value)}
-          />
+      <div className="card Toolbox__card">
+        <div
+          className="card-header btn"
+          id={"heading" + index}
+          data-toggle="collapse"
+          data-target={"#collapse" + index}
+          aria-expanded="true"
+          aria-controls={"collapse" + index}
+        >
+          <div>{element.text}</div>
         </div>
 
-        <div className="d-flex pb-1 pt-1">
-          <label htmlFor="fontSize">Font size</label>
-          <input
-            type="number"
-            name="fontSize"
-            value={element.fontSize}
-            onChange={(e) => handleFontSizeChange(e.target.value)}
-          />
-        </div>
-
-        <div className="d-flex pb-1 pt-1">
-          <label htmlFor="">Localtion</label>
-          <div className="d-flex flex-column">
-            <div>
+        <div
+          id={"collapse" + index}
+          className="collapse"
+          aria-labelledby={"heading" + index}
+          data-parent="#accordion"
+        >
+          <div className="card-body">
+            <div className="Toolbox__element d-flex pb-1 pt-1">
+              <label htmlFor="text">Text</label>
               <input
-                type="number"
+                type="text"
                 name="text"
-                value={element.location.x}
-                onChange={(e) => handleLocationXChange(e.target.value)}
+                value={element.text}
+                onChange={(e) => handleTextChange(e.target.value)}
               />
             </div>
-            <div>
+
+            <div className="d-flex pb-1 pt-1">
+              <label htmlFor="fontSize">Font size</label>
               <input
                 type="number"
+                name="fontSize"
+                value={element.fontSize}
+                onChange={(e) => handleFontSizeChange(e.target.value)}
+              />
+            </div>
+
+            <div className="d-flex pb-1 pt-1">
+              <label htmlFor="">Localtion</label>
+              <div className="d-flex flex-column">
+                <div>
+                  <input
+                    type="number"
+                    name="text"
+                    value={element.location.x}
+                    onChange={(e) => handleLocationXChange(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    name="text"
+                    value={element.location.y}
+                    onChange={(e) => handleLocationYChange(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="d-flex pb-1 pt-1">
+              <label htmlFor="color">Color</label>
+              <input
+                type="text"
                 name="text"
-                value={element.location.y}
-                onChange={(e) => handleLocationYChange(e.target.value)}
+                value={element.color}
+                onChange={(e) => handleColorChange(e.target.value)}
               />
             </div>
           </div>
-        </div>
-        <div className="d-flex pb-1 pt-1">
-          <label htmlFor="color">Color</label>
-          <input
-            type="text"
-            name="text"
-            value={element.color}
-            onChange={(e) => handleColorChange(e.target.value)}
-          />
         </div>
       </div>
     </div>
